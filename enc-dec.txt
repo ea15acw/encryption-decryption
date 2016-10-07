@@ -1,0 +1,44 @@
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+
+/*
+Banks also need to encrypt customers' information
+Write a program that allows a user to input 20 characters as a C string and a “key”.
+The program should show the encrypted string and then decrypt it.
+*/
+int main()
+{
+int temp;
+char string[20];
+cout << "please enter your information (max 20 character): ";
+cin.getline(string, 20);
+temp = strlen(string);
+
+char key[5],keycheck[5];
+cout << "\n\nplease enter a key for to encyript your information (5 character): ";
+cin >> key;
+cout << "\n\nyour inf encyripted: \n";
+for (int x = 0; x<temp; x++)
+{
+string[x] = string[x] ^ key[x];
+cout << string[x];
+}
+cout << "\n\nplease enter your key to decyrpt your inf: ";
+cin>>keycheck;
+if (key && keycheck)
+{
+cout << "\n\nyour inf decyripted: \n";
+for (int x = 0; x<temp; x++)
+{
+string[x] = string[x] ^ key[x];
+cout << string[x];
+}
+}
+else
+{
+cout << "your key is wrong!!!";
+}
+getchar();
+return 0;
+}
